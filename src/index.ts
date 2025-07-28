@@ -196,15 +196,11 @@
 // pattern1(5);
 
 let val = "";
-function pattern(num: number) {
-  for (let i = 0; i <= 2 * num - 1; i++) {
-    // stars
-    let loop = i;
-    if (loop > num) {
-      loop = 2* num - i;
-    }
-    for (let j = 0; j < loop; j++) {
-      val += "* ";
+let res = 65
+function pattern(num: number): void {
+  for (let i = 1; i <= num; i++) {
+    for (let j = 0; j < i; j++) {
+      val += String.fromCharCode(res + i -1 );
     }
 
     console.log(val);
@@ -214,3 +210,15 @@ function pattern(num: number) {
 }
 
 pattern(5);
+
+// let res = "";
+// let num = 4;
+// for (let i = 1; i <= num; i++) {
+//   for (let j = num; j >= i; j--) {
+//     res += i;
+//   }
+//   console.log(res);
+//   res = ""
+//   console.log("\n");
+
+// }
