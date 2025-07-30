@@ -195,22 +195,6 @@
 
 // pattern1(5);
 
-let val = "";
-let res = 65
-function pattern(num: number): void {
-  for (let i = 1; i <= num; i++) {
-    for (let j = 0; j < i; j++) {
-      val += String.fromCharCode(res + i -1 );
-    }
-
-    console.log(val);
-    val = "";
-    console.log("\n");
-  }
-}
-
-pattern(5);
-
 // let res = "";
 // let num = 4;
 // for (let i = 1; i <= num; i++) {
@@ -222,3 +206,124 @@ pattern(5);
 //   console.log("\n");
 
 // }
+
+// let val = "";
+// function pattern(num: number): void {
+//   for (let i = 0; i < num; i++) {
+//     for (let j = 0; j < num - i; j++) {
+//       val += "* ";
+//     }
+
+//     for (let j = 0; j < 2 * i; j++) {
+//       val += "  ";
+//     }
+
+//     for (let j = 0; j < num - i; j++) {
+//       val += "* ";
+//     }
+
+//     console.log(val);
+//     val = "";
+//   }
+// }
+
+// pattern(5);
+
+// let val1 = "";
+// function pattern1(num: number): void {
+//   for (let i = 0; i < num; i++) {
+//     for (let j = 0; j <= i; j++) {
+//       val1 += "* ";
+//     }
+
+//     for (let j = 0; j < 2* num - 2 * i - 2; j++) {
+//       val1 += "  ";
+//     }
+
+//     for (let j = 0; j <= i; j++) {
+//       val1 += "* ";
+//     }
+
+//     console.log(val1);
+//     val1 = "";
+//   }
+// }
+
+// pattern1(5);
+
+// let val = "";
+// function pattern(num: number): void {
+//   let index;
+//   let res = 2* num
+//   let space;
+//   for (let i = 1; i < res; i++) {
+//     if (i <= res / 2) {
+//       index = i;
+//       space = res - 2 * i;
+//     } else {
+//       index = res - i;
+//       space = 2 * i - res;
+//     }
+//     for (let j = 0; j < index; j++) {
+//       val += "* ";
+//     }
+
+//     for (let j = 0; j < space; j++) {
+//       val += "  ";
+//     }
+
+//     for (let j = 0; j < index; j++) {
+//       val += "* ";
+//     }
+
+//     console.log(val);
+//     val = "";
+//   }
+// }
+// pattern(5);
+
+// let val = "";
+// function pattern(num: number): void {
+//   for (let i = 0; i < num; i++) {
+//     for (let j = 0; j < num; j++) {
+//       if (i == 0 || i == num - 1 || j == 0 || j == num - 1) {
+//         val += "* ";
+//       } else {
+//         val += "  ";
+//       }
+//     }
+
+//     console.log(val);
+//     val = "";
+//   }
+// }
+// pattern(4);
+
+let val = "";
+function pattern(num: number): void {
+  for (let i = 0; i < num; i++) {
+    let res = 65;
+    // Star
+    for (let j = 0; j < num - i; j++) {
+      val += " ";
+    }
+    // Star
+    for (let j = 0; j < 2 * i + 1; j++) {
+      if (j < (2 * i) / 2) {
+        val += String.fromCharCode(res);
+        res++;
+      } else {
+        val += String.fromCharCode(res);
+        res--;
+      }
+    }
+    // Star
+    for (let j = 0; j < num - i; j++) {
+      val += " ";
+    }
+
+    console.log(val);
+    val = "";
+  }
+}
+pattern(4);
