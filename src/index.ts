@@ -299,27 +299,61 @@
 // }
 // pattern(4);
 
+// let val = "";
+// function pattern(num: number): void {
+//   for (let i = 0; i < num; i++) {
+//     let res = 65;
+//     // Star
+//     for (let j = 0; j < num - i; j++) {
+//       val += " ";
+//     }
+//     // Star
+//     for (let j = 0; j < 2 * i + 1; j++) {
+//       if (j < (2 * i) / 2) {
+//         val += String.fromCharCode(res);
+//         res++;
+//       } else {
+//         val += String.fromCharCode(res);
+//         res--;
+//       }
+//     }
+//     // Star
+//     for (let j = 0; j < num - i; j++) {
+//       val += " ";
+//     }
+
+//     console.log(val);
+//     val = "";
+//   }
+// }
+// pattern(4);
+
+// let val = "";
+// function pattern(num: number): void {
+//   for (let i = 0; i <= num; i++) {
+//     let res = 69;
+
+//     // Star
+//     for (let j = i; j >= 1; j--) {
+//       val += String.fromCharCode(res-j+1);
+//     }
+
+//     console.log(val);
+//     val = "";
+//   }
+// }
+// pattern(5);
 let val = "";
 function pattern(num: number): void {
-  for (let i = 0; i < num; i++) {
-    let res = 65;
+  for (let i = 0; i < 2*num-1; i++) {
+
     // Star
-    for (let j = 0; j < num - i; j++) {
-      val += " ";
-    }
-    // Star
-    for (let j = 0; j < 2 * i + 1; j++) {
-      if (j < (2 * i) / 2) {
-        val += String.fromCharCode(res);
-        res++;
-      } else {
-        val += String.fromCharCode(res);
-        res--;
-      }
-    }
-    // Star
-    for (let j = 0; j < num - i; j++) {
-      val += " ";
+    for (let j = 0; j < 2 * num - 1; j++) {
+      let top = i
+      let left = j
+      let down = 2 * num  -2- i;
+      let right = 2 * num -2 - j;
+      val += num - Math.min(top, down,left, right);
     }
 
     console.log(val);
