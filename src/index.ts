@@ -343,21 +343,70 @@
 //   }
 // }
 // pattern(5);
-let val = "";
-function pattern(num: number): void {
-  for (let i = 0; i < 2*num-1; i++) {
 
-    // Star
-    for (let j = 0; j < 2 * num - 1; j++) {
-      let top = i
-      let left = j
-      let down = 2 * num  -2- i;
-      let right = 2 * num -2 - j;
-      val += num - Math.min(top, down,left, right);
-    }
+// let val = "";
+// function pattern(num: number): void {
+//   for (let i = 0; i < 2*num-1; i++) {
 
-    console.log(val);
-    val = "";
+//     // Star
+//     for (let j = 0; j < 2 * num - 1; j++) {
+//       let top = i
+//       let left = j
+//       let down = 2 * num  -2- i;
+//       let right = 2 * num -2 - j;
+//       val += num - Math.min(top, down,left, right);
+//     }
+
+//     console.log(val);
+//     val = "";
+//   }
+// }
+// pattern(4);
+
+//  lEARNING MATHS FOR DSA
+
+function printNum(n: number) {
+  let cnt = 0;
+  let num = n;
+  let amstrng = 0
+  let reversedNumber = 0;
+  let list = ""
+  while (num > 0) {
+    let rem = num % 10;
+    amstrng += rem**3;
+    num = Math.floor(num / 10);
+    reversedNumber = reversedNumber * 10 + rem;
+    cnt++;
   }
+
+  for (let i = 1; i <= n; i++) {
+    if (n % i == 0) {
+      list += ` ${i}`
+    }
+  }
+
+  console.log(typeof reversedNumber);
+  console.log(`Original number : ${n}`);
+  console.log(`Reversed number : ${reversedNumber}`);
+  console.log(`Number of Digits is ${cnt}`);
+  console.log(`Divisors of ${n} are${list}`);
+  console.log(`Armstrong number result : ${amstrng}`);
+  if (n === reversedNumber) {
+    console.log(`${n} is a Palindrome Number`);
+  } else {
+    console.log(`${n} is not a Palindrome Number`);
+  }
+  if (n === amstrng ) {
+    console.log(`${n} is an Armstrong Number`);
+  } else {
+    console.log(`${n} is not an Armstrong Number`);
+  }
+
+
 }
-pattern(4);
+
+function main() {
+  printNum(67);
+}
+
+main();
