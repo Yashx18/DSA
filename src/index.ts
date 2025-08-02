@@ -368,12 +368,13 @@
 function printNum(n: number) {
   let cnt = 0;
   let num = n;
-  let amstrng = 0
+  let amstrng = 0;
   let reversedNumber = 0;
-  let list = ""
+  let list = "";
+
   while (num > 0) {
     let rem = num % 10;
-    amstrng += rem**3;
+    amstrng += rem ** 3;
     num = Math.floor(num / 10);
     reversedNumber = reversedNumber * 10 + rem;
     cnt++;
@@ -381,7 +382,7 @@ function printNum(n: number) {
 
   for (let i = 1; i <= n; i++) {
     if (n % i == 0) {
-      list += ` ${i}`
+      list += ` ${i}`;
     }
   }
 
@@ -391,22 +392,89 @@ function printNum(n: number) {
   console.log(`Number of Digits is ${cnt}`);
   console.log(`Divisors of ${n} are${list}`);
   console.log(`Armstrong number result : ${amstrng}`);
+
   if (n === reversedNumber) {
     console.log(`${n} is a Palindrome Number`);
   } else {
     console.log(`${n} is not a Palindrome Number`);
   }
-  if (n === amstrng ) {
+
+  if (n === amstrng) {
     console.log(`${n} is an Armstrong Number`);
   } else {
     console.log(`${n} is not an Armstrong Number`);
   }
-
-
 }
 
+function sortedDivisors(n: number) {
+  let arr = [];
+  for (let i = 1; i <= Math.sqrt(n); i++) {
+    if (n % i == 0) {
+      arr.push(i);
+      if (n / i !== i) {
+        arr.push(n / i);
+      }
+    }
+  }
+  arr.sort((a, b) => a - b);
+  console.log(arr);
+}
+
+function primeCheck(n: number) {
+  let cnt = 0;
+  for (let i = 1; i <= Math.sqrt(n); i++) {
+    if (n % i == 0) {
+      cnt++;
+      if (n / i != i) {
+        cnt++;
+      }
+    }
+  }
+  console.log(cnt);
+
+  if (cnt == 2) {
+    console.log(`${n} is a Prime Number.`);
+  } else {
+    console.log(`${n} is not a  Prime Number.`);
+  }
+}
+
+function gcd(n1: number, n2: number) {
+  let num = 0;
+  n1 > n2 ? (num = n1) : (num = n2);
+  let GreatedCD;
+
+  for (let i = 1; i <= num; i++) {
+    if (n1 % i == 0 && n2 % i == 0) {
+      GreatedCD = i;
+    }
+  }
+  console.log(`Greatest Common Divisor of ${n1} & ${n2} is ${GreatedCD}`);
+}
+
+// function gcdByEA(n1: number, n2: number) {
+//   let a;
+//   let b;
+//   while (n1 > 0 && n2 > 0) {
+//     if (n1 > n2) {
+//       a = n1 % n2;
+//     } else {
+//     }
+
+//     if (a == 0) {
+//       console.log(b);
+//     } else {
+//       console.log(b);
+//     }
+//   }
+// }
+
 function main() {
-  printNum(67);
+  // printNum(56);
+  // sortedDivisors(18);
+  // primeCheck(18);
+  gcd(20, 40);
+  // gcdByEA(20, 40);
 }
 
 main();
