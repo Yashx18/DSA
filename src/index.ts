@@ -538,9 +538,43 @@ function checkGcd(n1: number, n2: number) {
   return GCD;
 }
 
+//  RECURSION
+
+function nameRecursion(i: number, n: number) {
+  if (i > n) {
+    return;
+  } else {
+    console.log("Ken");
+    nameRecursion(i + 1, n);
+  }
+}
+function linearRecursion(i: number, n: number) {
+  if (i > n) {
+    return;
+  } else {
+    console.log(i);
+    linearRecursion(i + 1, n);
+  }
+}
+function reverseRecursion(i: number, n: number) {
+  if (n < i) {
+    return;
+  } else {
+    console.log(n);
+    reverseRecursion(i , n-1);
+  }
+}
+function backtrackingRecursion(i: number, n: number) {
+  if ( n < 1) {
+    return;
+  } else {
+    backtrackingRecursion(i, n-1);
+    console.log(i-n+1);
+  }
+}
+
 function main() {
-  const result = checkGcd(2, 4);
-  console.log(result);
+  backtrackingRecursion(10, 10);
 }
 
 main();
