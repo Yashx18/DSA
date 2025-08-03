@@ -469,12 +469,78 @@ function gcd(n1: number, n2: number) {
 //   }
 // }
 
+function countDigits(n: number) {
+  let num = n;
+  let cnt = 0;
+  while (num > 0) {
+    num = Math.floor(num / 10);
+    cnt++;
+  }
+  return cnt;
+}
+
+function reverseNumber(n: number) {
+  let num = n;
+  let val = 0;
+  let lastDigit = 0;
+  while (num > 0) {
+    lastDigit = num % 10;
+    num = Math.floor(num / 10);
+    val = val * 10 + lastDigit;
+  }
+  return val;
+}
+
+function checkPalindrome(n: number) {
+  let num = n;
+  let val = 0;
+  let lastDigit = 0;
+  while (num > 0) {
+    lastDigit = num % 10;
+    num = Math.floor(num / 10);
+    val = val * 10 + lastDigit;
+  }
+
+  if (n == val) {
+    return `${n} is a Palindrome Number.`;
+  } else {
+    return `${n} is not a Palindrome Number.`;
+  }
+}
+
+function checkArmstrong(n: number) {
+  let num = n;
+  let val = 0;
+  let numLen = n.toString().length;
+  let lastDigit = 0;
+
+  while (num > 0) {
+    lastDigit = num % 10;
+    num = Math.floor(num / 10);
+    val += lastDigit ** numLen;
+  }
+
+  if (n == val) {
+    return `${n} is a Armstrong Number.`;
+  } else {
+    return `${n} is not a Armstrong Number.`;
+  }
+}
+function checkGcd(n1: number, n2: number) {
+  let num = 0;
+  let GCD = 0;
+  n1 > n2 ? (num = n1) : (num = n2);
+  for (let i = 1; i <= num; i++) {
+    if (n1 % i == 0 && n2 % i == 0) {
+      GCD = i;
+    }
+  }
+  return GCD;
+}
+
 function main() {
-  // printNum(56);
-  // sortedDivisors(18);
-  // primeCheck(18);
-  gcd(20, 40);
-  // gcdByEA(20, 40);
+  const result = checkGcd(2, 4);
+  console.log(result);
 }
 
 main();
