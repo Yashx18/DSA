@@ -561,20 +561,81 @@ function reverseRecursion(i: number, n: number) {
     return;
   } else {
     console.log(n);
-    reverseRecursion(i , n-1);
+    reverseRecursion(i, n - 1);
   }
 }
 function backtrackingRecursion(i: number, n: number) {
-  if ( n < 1) {
+  if (n < 1) {
     return;
   } else {
-    backtrackingRecursion(i, n-1);
-    console.log(i-n+1);
+    backtrackingRecursion(i, n - 1);
+    console.log(i - n + 1);
+  }
+}
+// functional way
+function sumRecursion(n: number): number {
+  if (n == 1) {
+    return 1;
+  } else {
+    return n + sumRecursion(n - 1);
   }
 }
 
+// Parameterised way
+function sumPrecursion(i: number, n: number) {
+  if (i == 0) {
+    console.log(n + i);
+    return;
+  } else {
+    sumPrecursion(i - 1, n + i);
+  }
+}
+
+// functional way for factor
+function factorRecursion(n: number): number {
+  if (n == 1) {
+    return 1;
+  } else {
+    return n * factorRecursion(n - 1);
+  }
+}
+
+// Paternised way for factor
+function factorPRecursion(i: number, n: number) {
+  if (i == n) {
+    console.log(i * i);
+    return;
+  } else {
+    factorPRecursion(i + 1, n);
+  }
+}
+
+function reverseArray(n: number[], left: number, right: number) {
+  if (left == right) {
+    console.log(n);
+
+    return;
+  }
+  [n[left], n[right]] = [n[right], n[left]];
+  reverseArray(n, left + 1, right - 1);
+}
+
+function palindromeRecursion(n: string, i: number) {
+ let str = n.toLowerCase()
+  // @ts-ignore
+  if (i == Math.floor(n.length / 2)) {
+    return true;
+  }
+  if (str[i] != str[n.length - i -1]) {
+    return false;
+  }
+  return palindromeRecursion(n, i + 1);
+}
+
 function main() {
-  backtrackingRecursion(10, 10);
+  const res = palindromeRecursion("madAM", 0);
+  console.log(res);
+  // sumPrecursion(3,0)
 }
 
 main();
