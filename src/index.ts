@@ -631,9 +631,18 @@ function palindromeRecursion(n: string, i: number) {
   }
   return palindromeRecursion(n, i + 1);
 }
+function fibonacciRecursion(n: number) {
+  if (n <= 1) {
+    return n 
+  }
+  let Last: number = fibonacciRecursion(n-1)
+  let sLast: number = fibonacciRecursion(n - 2);
+  return Last + sLast
+}
+
 
 function main() {
-  const res = palindromeRecursion("madAM", 0);
+  const res = fibonacciRecursion(5);
   console.log(res);
   // sumPrecursion(3,0)
 }
