@@ -621,30 +621,49 @@ function reverseArray(n: number[], left: number, right: number) {
 }
 
 function palindromeRecursion(n: string, i: number) {
- let str = n.toLowerCase()
+  let str = n.toLowerCase();
   // @ts-ignore
   if (i == Math.floor(n.length / 2)) {
     return true;
   }
-  if (str[i] != str[n.length - i -1]) {
+  if (str[i] != str[n.length - i - 1]) {
     return false;
   }
   return palindromeRecursion(n, i + 1);
 }
 function fibonacciRecursion(n: number) {
   if (n <= 1) {
-    return n 
+    return n;
   }
-  let Last: number = fibonacciRecursion(n-1)
+  let Last: number = fibonacciRecursion(n - 1);
   let sLast: number = fibonacciRecursion(n - 2);
-  return Last + sLast
+  return Last + sLast;
 }
 
+function recursion(n: number): any {
+  if (n <= 1) {
+    return n;
+  }
+
+  return recursion(n - 1) + recursion(n - 2);
+}
+
+// HASHING
+
+function stringHash(arr: string, n: string) {
+  let hashedArr: any = []
+  let asciiValue = String.tocharCode
+  for (let i = 0; i <= arr.length; i++) {
+    if (arr[i] == n) {
+      hashedArr[i] += 1
+    }
+  }
+  
+}
 
 function main() {
-  const res = fibonacciRecursion(5);
+  const res = stringHash("abscfa", "a");
   console.log(res);
-  // sumPrecursion(3,0)
 }
 
 main();
